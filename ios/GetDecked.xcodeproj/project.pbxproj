@@ -16,13 +16,18 @@
 		5FBB63CCE1B00F35F03FB360 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9F681AF865150B54D24F2 /* Player.swift */; };
 		648B450EFD918CF45751B6E4 /* GetDeckedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320ABF3DFC7173C2BED20AF6 /* GetDeckedApp.swift */; };
 		6CD0F21B901678B2A3E0A16D /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = DDB93F4E5D3DBA86FE16278D /* FirebaseFunctions */; };
+		892A1B3966758207D19038EA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357E6896AAA1B0D6971A27AF /* HomeViewModel.swift */; };
 		8B3D3C67CB04EAFA01C2D64F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6ECEAD190D9F191F618C745D /* FirebaseFirestore */; };
 		982A998DADEC133CF3B1B980 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E679CAA916252ABF97B3BD /* Card.swift */; };
 		A5AB64E0E551CBE2E03AF45C /* Stickers.xcstickers in Resources */ = {isa = PBXBuildFile; fileRef = 4F3B08CA045143B6BA33A86D /* Stickers.xcstickers */; };
+		BC9603D544804007BD869FAA /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95051793FBD4E3D02D6E3799 /* GameViewModel.swift */; };
 		BFA1A5CA29158CCD89E53B1D /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C639994D618AEF7C64848 /* DeepLinkHandler.swift */; };
+		C0775EAF1B212A71A46B2CB7 /* LobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51897AE6B54F6C9D45E4040F /* LobbyView.swift */; };
 		C2EBF07E07C6753307C50EF1 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = BF13CBBD16D4E7FE94FC5028 /* FirebaseMessaging */; };
+		CB076DB474E1F8D6F80D2B40 /* LobbyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EEF4958309AB65A927E8A2 /* LobbyViewModel.swift */; };
 		D667D3FD617FD392D7429BD9 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B94225CC1B395BA7145B4FD6 /* FirebaseAnalytics */; };
 		F1B3065619641A38FA74D7F5 /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A982F50D0514337310B004FE /* CardTests.swift */; };
+		F79FE96A8869681E96ED07B3 /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD59BDF40DF6F3E71CB2C3 /* GameService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +46,16 @@
 		2334F21B512B5EFE62052652 /* GetDecked.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = GetDecked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28955B63861FD75A36544D42 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		320ABF3DFC7173C2BED20AF6 /* GetDeckedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDeckedApp.swift; sourceTree = "<group>"; };
+		357E6896AAA1B0D6971A27AF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		3D20820F5054651D43B5A40F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		44EEF4958309AB65A927E8A2 /* LobbyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewModel.swift; sourceTree = "<group>"; };
 		4F3B08CA045143B6BA33A86D /* Stickers.xcstickers */ = {isa = PBXFileReference; lastKnownFileType = folder.stickers; path = Stickers.xcstickers; sourceTree = "<group>"; };
+		51897AE6B54F6C9D45E4040F /* LobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyView.swift; sourceTree = "<group>"; };
 		769DD9EE907F4DF242464B34 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		7CBD59BDF40DF6F3E71CB2C3 /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
 		8852B4263D7F8845A70A29AB /* GameStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateTests.swift; sourceTree = "<group>"; };
 		91D5370D92F76FDCF8631962 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		95051793FBD4E3D02D6E3799 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		9D0C639994D618AEF7C64848 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
 		A982F50D0514337310B004FE /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
 		C04284EEF3D3A5ED6A100322 /* GetDeckedTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = GetDeckedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +109,7 @@
 				691CAD905B1D7D85302F6075 /* Helpers */,
 				12678F347D654F5049A41BF1 /* Models */,
 				44DD4668259BF5DB7E90146A /* Services */,
+				BF2F9EE40C0F7D5AA886838B /* ViewModels */,
 				52F6C2121620A534A79A1DE4 /* Views */,
 			);
 			path = GetDecked;
@@ -108,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				769DD9EE907F4DF242464B34 /* AuthService.swift */,
+				7CBD59BDF40DF6F3E71CB2C3 /* GameService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -116,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				28955B63861FD75A36544D42 /* HomeView.swift */,
+				51897AE6B54F6C9D45E4040F /* LobbyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -154,6 +167,16 @@
 				8852B4263D7F8845A70A29AB /* GameStateTests.swift */,
 			);
 			path = GetDeckedTests;
+			sourceTree = "<group>";
+		};
+		BF2F9EE40C0F7D5AA886838B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				95051793FBD4E3D02D6E3799 /* GameViewModel.swift */,
+				357E6896AAA1B0D6971A27AF /* HomeViewModel.swift */,
+				44EEF4958309AB65A927E8A2 /* LobbyViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		CBD2D6BA4CF34EEEE1B5ABB9 /* Products */ = {
@@ -282,9 +305,14 @@
 				33270EBD5D3BD3BE7C53D3DC /* AuthService.swift in Sources */,
 				982A998DADEC133CF3B1B980 /* Card.swift in Sources */,
 				BFA1A5CA29158CCD89E53B1D /* DeepLinkHandler.swift in Sources */,
+				F79FE96A8869681E96ED07B3 /* GameService.swift in Sources */,
 				12B49B53397B8174072FC520 /* GameState.swift in Sources */,
+				BC9603D544804007BD869FAA /* GameViewModel.swift in Sources */,
 				648B450EFD918CF45751B6E4 /* GetDeckedApp.swift in Sources */,
 				2B2C396A1692FB534DEB1690 /* HomeView.swift in Sources */,
+				892A1B3966758207D19038EA /* HomeViewModel.swift in Sources */,
+				C0775EAF1B212A71A46B2CB7 /* LobbyView.swift in Sources */,
+				CB076DB474E1F8D6F80D2B40 /* LobbyViewModel.swift in Sources */,
 				5FBB63CCE1B00F35F03FB360 /* Player.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
