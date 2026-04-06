@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B76B67FF814FD77780FACB4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7319665B1EE7ACD4C94902C5 /* FirebaseAuth */; };
+		11D9662C1BE152B789D8B4A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D5370D92F76FDCF8631962 /* AppDelegate.swift */; };
+		2B2C396A1692FB534DEB1690 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28955B63861FD75A36544D42 /* HomeView.swift */; };
+		33270EBD5D3BD3BE7C53D3DC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DD9EE907F4DF242464B34 /* AuthService.swift */; };
+		648B450EFD918CF45751B6E4 /* GetDeckedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320ABF3DFC7173C2BED20AF6 /* GetDeckedApp.swift */; };
+		6CD0F21B901678B2A3E0A16D /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = DDB93F4E5D3DBA86FE16278D /* FirebaseFunctions */; };
+		828D609FAE6AA0FED422032A /* PlaceholderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BAFD0D77E6135C96B26B44 /* PlaceholderTests.swift */; };
+		8B3D3C67CB04EAFA01C2D64F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6ECEAD190D9F191F618C745D /* FirebaseFirestore */; };
+		A5AB64E0E551CBE2E03AF45C /* Stickers.xcstickers in Resources */ = {isa = PBXBuildFile; fileRef = 4F3B08CA045143B6BA33A86D /* Stickers.xcstickers */; };
+		BFA1A5CA29158CCD89E53B1D /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C639994D618AEF7C64848 /* DeepLinkHandler.swift */; };
+		C2EBF07E07C6753307C50EF1 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = BF13CBBD16D4E7FE94FC5028 /* FirebaseMessaging */; };
+		D667D3FD617FD392D7429BD9 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B94225CC1B395BA7145B4FD6 /* FirebaseAnalytics */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D64C16A449FC256BEB314946 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8BFD2C04E2CA1AAD0C44091 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AA094032BCF8BC08A0CFDBE;
+			remoteInfo = GetDecked;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0E227AB8C5D306BD8D52E5C6 /* GetDecked.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GetDecked.entitlements; sourceTree = "<group>"; };
+		2334F21B512B5EFE62052652 /* GetDecked.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = GetDecked.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28955B63861FD75A36544D42 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		320ABF3DFC7173C2BED20AF6 /* GetDeckedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDeckedApp.swift; sourceTree = "<group>"; };
+		3D20820F5054651D43B5A40F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4F3B08CA045143B6BA33A86D /* Stickers.xcstickers */ = {isa = PBXFileReference; lastKnownFileType = folder.stickers; path = Stickers.xcstickers; sourceTree = "<group>"; };
+		53BAFD0D77E6135C96B26B44 /* PlaceholderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTests.swift; sourceTree = "<group>"; };
+		769DD9EE907F4DF242464B34 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		91D5370D92F76FDCF8631962 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9D0C639994D618AEF7C64848 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
+		C04284EEF3D3A5ED6A100322 /* GetDeckedTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = GetDeckedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAB22B2150331799561C5044 /* GetDeckedStickers.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = GetDeckedStickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3FAC427ACB44C925BF77210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FCC6EBB7AACDFA2C12497964 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B76B67FF814FD77780FACB4 /* FirebaseAuth in Frameworks */,
+				8B3D3C67CB04EAFA01C2D64F /* FirebaseFirestore in Frameworks */,
+				6CD0F21B901678B2A3E0A16D /* FirebaseFunctions in Frameworks */,
+				C2EBF07E07C6753307C50EF1 /* FirebaseMessaging in Frameworks */,
+				D667D3FD617FD392D7429BD9 /* FirebaseAnalytics in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1CEBABC48EE9C99AFCADDB10 /* GetDeckedStickers */ = {
+			isa = PBXGroup;
+			children = (
+				3D20820F5054651D43B5A40F /* Info.plist */,
+				4F3B08CA045143B6BA33A86D /* Stickers.xcstickers */,
+			);
+			path = GetDeckedStickers;
+			sourceTree = "<group>";
+		};
+		37A35FA9A1C270A3A6265D86 /* GetDecked */ = {
+			isa = PBXGroup;
+			children = (
+				0E227AB8C5D306BD8D52E5C6 /* GetDecked.entitlements */,
+				F3FAC427ACB44C925BF77210 /* Info.plist */,
+				9CDC816DE6FBF50CDE39062E /* App */,
+				691CAD905B1D7D85302F6075 /* Helpers */,
+				44DD4668259BF5DB7E90146A /* Services */,
+				52F6C2121620A534A79A1DE4 /* Views */,
+			);
+			path = GetDecked;
+			sourceTree = "<group>";
+		};
+		44DD4668259BF5DB7E90146A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				769DD9EE907F4DF242464B34 /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		52F6C2121620A534A79A1DE4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				28955B63861FD75A36544D42 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		561AF77D228038EC10A98880 = {
+			isa = PBXGroup;
+			children = (
+				37A35FA9A1C270A3A6265D86 /* GetDecked */,
+				1CEBABC48EE9C99AFCADDB10 /* GetDeckedStickers */,
+				A4972209B0E4F7AF3CD7484D /* GetDeckedTests */,
+				CBD2D6BA4CF34EEEE1B5ABB9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		691CAD905B1D7D85302F6075 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9D0C639994D618AEF7C64848 /* DeepLinkHandler.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9CDC816DE6FBF50CDE39062E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				91D5370D92F76FDCF8631962 /* AppDelegate.swift */,
+				320ABF3DFC7173C2BED20AF6 /* GetDeckedApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A4972209B0E4F7AF3CD7484D /* GetDeckedTests */ = {
+			isa = PBXGroup;
+			children = (
+				53BAFD0D77E6135C96B26B44 /* PlaceholderTests.swift */,
+			);
+			path = GetDeckedTests;
+			sourceTree = "<group>";
+		};
+		CBD2D6BA4CF34EEEE1B5ABB9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2334F21B512B5EFE62052652 /* GetDecked.app */,
+				EAB22B2150331799561C5044 /* GetDeckedStickers.appex */,
+				C04284EEF3D3A5ED6A100322 /* GetDeckedTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3AA094032BCF8BC08A0CFDBE /* GetDecked */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A51D99CC9406221D00D6445A /* Build configuration list for PBXNativeTarget "GetDecked" */;
+			buildPhases = (
+				0AC79F3754F93DBB9BD806AA /* Sources */,
+				FCC6EBB7AACDFA2C12497964 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GetDecked;
+			packageProductDependencies = (
+				7319665B1EE7ACD4C94902C5 /* FirebaseAuth */,
+				6ECEAD190D9F191F618C745D /* FirebaseFirestore */,
+				DDB93F4E5D3DBA86FE16278D /* FirebaseFunctions */,
+				BF13CBBD16D4E7FE94FC5028 /* FirebaseMessaging */,
+				B94225CC1B395BA7145B4FD6 /* FirebaseAnalytics */,
+			);
+			productName = GetDecked;
+			productReference = 2334F21B512B5EFE62052652 /* GetDecked.app */;
+			productType = "com.apple.product-type.application";
+		};
+		79AEDDC5A5E35816F4749321 /* GetDeckedStickers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 132DAF231EDCF562F3F61D74 /* Build configuration list for PBXNativeTarget "GetDeckedStickers" */;
+			buildPhases = (
+				41FDD1F2E28CA407DBD3AF04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GetDeckedStickers;
+			packageProductDependencies = (
+			);
+			productName = GetDeckedStickers;
+			productReference = EAB22B2150331799561C5044 /* GetDeckedStickers.appex */;
+			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
+		};
+		F7A008B953C0E19FFF783083 /* GetDeckedTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C4D6265C9BBEC4D9353035E /* Build configuration list for PBXNativeTarget "GetDeckedTests" */;
+			buildPhases = (
+				3A506CB98251F65EFDFEB634 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4512654D3DBB3D2115A3F6A5 /* PBXTargetDependency */,
+			);
+			name = GetDeckedTests;
+			packageProductDependencies = (
+			);
+			productName = GetDeckedTests;
+			productReference = C04284EEF3D3A5ED6A100322 /* GetDeckedTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C8BFD2C04E2CA1AAD0C44091 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 87D4B2AC9D4666B3C9D56972 /* Build configuration list for PBXProject "GetDecked" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 561AF77D228038EC10A98880;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E96BBE9DE2DAB3E26820E366 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = CBD2D6BA4CF34EEEE1B5ABB9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3AA094032BCF8BC08A0CFDBE /* GetDecked */,
+				79AEDDC5A5E35816F4749321 /* GetDeckedStickers */,
+				F7A008B953C0E19FFF783083 /* GetDeckedTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		41FDD1F2E28CA407DBD3AF04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5AB64E0E551CBE2E03AF45C /* Stickers.xcstickers in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0AC79F3754F93DBB9BD806AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11D9662C1BE152B789D8B4A4 /* AppDelegate.swift in Sources */,
+				33270EBD5D3BD3BE7C53D3DC /* AuthService.swift in Sources */,
+				BFA1A5CA29158CCD89E53B1D /* DeepLinkHandler.swift in Sources */,
+				648B450EFD918CF45751B6E4 /* GetDeckedApp.swift in Sources */,
+				2B2C396A1692FB534DEB1690 /* HomeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A506CB98251F65EFDFEB634 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				828D609FAE6AA0FED422032A /* PlaceholderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4512654D3DBB3D2115A3F6A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AA094032BCF8BC08A0CFDBE /* GetDecked */;
+			targetProxy = D64C16A449FC256BEB314946 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0AB9817FBC8138A018CC7E06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.splendidbit.GetDeckedTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GetDecked.app/GetDecked";
+			};
+			name = Debug;
+		};
+		22D8B511F585845DCA93F4DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		5D7DE53C89E67FB5933A2DC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		6A484E43D0B60421D60C1A4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GetDeckedStickers/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.splendidbit.getdecked.stickers;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B83A1BD97F0744C76F19C0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GetDecked/GetDecked.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = GetDecked/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.splendidbit.getdecked;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8F757C564266C0018F7B5CFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GetDeckedStickers/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.splendidbit.getdecked.stickers;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A33A607EA2426C096F46F5DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.splendidbit.GetDeckedTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GetDecked.app/GetDecked";
+			};
+			name = Release;
+		};
+		A911EE5920D360E282A2E216 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GetDecked/GetDecked.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = GetDecked/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.splendidbit.getdecked;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		132DAF231EDCF562F3F61D74 /* Build configuration list for PBXNativeTarget "GetDeckedStickers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A484E43D0B60421D60C1A4C /* Debug */,
+				8F757C564266C0018F7B5CFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5C4D6265C9BBEC4D9353035E /* Build configuration list for PBXNativeTarget "GetDeckedTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AB9817FBC8138A018CC7E06 /* Debug */,
+				A33A607EA2426C096F46F5DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		87D4B2AC9D4666B3C9D56972 /* Build configuration list for PBXProject "GetDecked" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D7DE53C89E67FB5933A2DC6 /* Debug */,
+				22D8B511F585845DCA93F4DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A51D99CC9406221D00D6445A /* Build configuration list for PBXNativeTarget "GetDecked" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B83A1BD97F0744C76F19C0C /* Debug */,
+				A911EE5920D360E282A2E216 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E96BBE9DE2DAB3E26820E366 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6ECEAD190D9F191F618C745D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E96BBE9DE2DAB3E26820E366 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		7319665B1EE7ACD4C94902C5 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E96BBE9DE2DAB3E26820E366 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		B94225CC1B395BA7145B4FD6 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E96BBE9DE2DAB3E26820E366 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		BF13CBBD16D4E7FE94FC5028 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E96BBE9DE2DAB3E26820E366 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		DDB93F4E5D3DBA86FE16278D /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E96BBE9DE2DAB3E26820E366 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = C8BFD2C04E2CA1AAD0C44091 /* Project object */;
+}
