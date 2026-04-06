@@ -80,6 +80,15 @@ struct HomeView: View {
             Button("Join Game") { vm.showJoinGame = true }
                 .buttonStyle(.bordered)
                 .controlSize(.large)
+            NavigationLink("How to Play") {
+                TutorialView()
+            }
+            .buttonStyle(.bordered)
+
+            NavigationLink("Stats") {
+                StatsView()
+            }
+            .buttonStyle(.bordered)
             Spacer()
             if let error = vm.errorMessage {
                 Text(error).foregroundStyle(.red).font(.caption)
