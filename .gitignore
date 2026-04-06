@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+firebase/functions/lib/
+
+# Xcode
+ios/GetDecked.xcodeproj/xcuserdata/
+ios/GetDecked.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcuserstate
+DerivedData/
+build/
+
+# SPM
+.build/
+.swiftpm/
+
+# Firebase
+.firebase/
+
+# OS
+.DS_Store
+
+# Secrets
+GoogleService-Info.plist
+*.p8
