@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF3B30"/>
+      <stop offset="100%" style="stop-color:#FF6B35"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="224" fill="url(#bg)"/>
+  <!-- Explosion accent -->
+  <polygon points="512,80 560,280 720,160 600,320 800,350 620,420 760,580 560,480 512,700 464,480 264,580 404,420 224,350 424,320 304,160 464,280" fill="#FFD60A" opacity="0.3"/>
+  <!-- Main text -->
+  <text x="512" y="580" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="420" fill="white" letter-spacing="-20">GD</text>
+  <!-- Stress meter bar at bottom -->
+  <rect x="200" y="780" width="624" height="60" rx="30" fill="rgba(0,0,0,0.3)"/>
+  <rect x="200" y="780" width="500" height="60" rx="30" fill="#FFD60A"/>
+</svg>

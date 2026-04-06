@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <rect width="300" height="300" rx="30" fill="#FF3B30"/>
+  <text x="150" y="170" text-anchor="middle" font-family="system-ui" font-weight="900" font-size="48" fill="white" transform="rotate(-5, 150, 170)">MELT</text>
+  <text x="150" y="230" text-anchor="middle" font-family="system-ui" font-weight="900" font-size="48" fill="#FFD60A" transform="rotate(-5, 150, 230)">DOWN!</text>
+</svg>

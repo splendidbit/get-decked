@@ -34,6 +34,7 @@ targets:
         INFOPLIST_FILE: GetDecked/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.splendidbit.getdecked
         CODE_SIGN_ENTITLEMENTS: GetDecked/GetDecked.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     entitlements:
       path: GetDecked/GetDecked.entitlements
       properties:
