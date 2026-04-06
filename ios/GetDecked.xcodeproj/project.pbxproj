@@ -17,6 +17,8 @@
 		2B2C396A1692FB534DEB1690 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28955B63861FD75A36544D42 /* HomeView.swift */; };
 		33270EBD5D3BD3BE7C53D3DC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DD9EE907F4DF242464B34 /* AuthService.swift */; };
 		55A1FED341D0F067D2F15A66 /* PlayerStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6D2946F9C04C596689BB7 /* PlayerStatusView.swift */; };
+		597FF639BBDA5982C7AAA123 /* TurnTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BD1E4CBFFFC7EA15DEF06 /* TurnTimerView.swift */; };
+		5A445D6FC243AE22FB0BF1F9 /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9719E03DC47F58CD114D792 /* ConfigService.swift */; };
 		5FBB63CCE1B00F35F03FB360 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9F681AF865150B54D24F2 /* Player.swift */; };
 		648B450EFD918CF45751B6E4 /* GetDeckedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320ABF3DFC7173C2BED20AF6 /* GetDeckedApp.swift */; };
 		6CD0F21B901678B2A3E0A16D /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = DDB93F4E5D3DBA86FE16278D /* FirebaseFunctions */; };
@@ -41,6 +43,7 @@
 		F1B3065619641A38FA74D7F5 /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A982F50D0514337310B004FE /* CardTests.swift */; };
 		F79FE96A8869681E96ED07B3 /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBD59BDF40DF6F3E71CB2C3 /* GameService.swift */; };
 		FB6D12060CCC6A7CDDC9057F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AED4ED07389D1C6870BE3AE /* NotificationService.swift */; };
+		FD4712ED171F3F0309E1827F /* PeekOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8372FB3C934A4757E3BE99 /* PeekOverlay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,7 @@
 /* Begin PBXFileReference section */
 		0AED4ED07389D1C6870BE3AE /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		0E227AB8C5D306BD8D52E5C6 /* GetDecked.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GetDecked.entitlements; sourceTree = "<group>"; };
+		0F0BD1E4CBFFFC7EA15DEF06 /* TurnTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTimerView.swift; sourceTree = "<group>"; };
 		21E679CAA916252ABF97B3BD /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		2334F21B512B5EFE62052652 /* GetDecked.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = GetDecked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27BD6DA2F2257DBAF45D9E9E /* StressMeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StressMeterView.swift; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 		60C9248DEBA78380E7A0812C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6C0FE77EFF54210DBDD314D5 /* FeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
 		769DD9EE907F4DF242464B34 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		7C8372FB3C934A4757E3BE99 /* PeekOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekOverlay.swift; sourceTree = "<group>"; };
 		7CB249180322CBBF57E3933A /* GameEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndView.swift; sourceTree = "<group>"; };
 		7CBD59BDF40DF6F3E71CB2C3 /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
 		83FAC619F40477E0EC53126F /* GameBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardView.swift; sourceTree = "<group>"; };
@@ -85,6 +90,7 @@
 		C04284EEF3D3A5ED6A100322 /* GetDeckedTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = GetDeckedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA79627578F75BFA94FD5EE8 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		DAB9F681AF865150B54D24F2 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		E9719E03DC47F58CD114D792 /* ConfigService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigService.swift; sourceTree = "<group>"; };
 		EAB22B2150331799561C5044 /* GetDeckedStickers.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = GetDeckedStickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3FAC427ACB44C925BF77210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F65376784AACE766D72C2B13 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -146,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				769DD9EE907F4DF242464B34 /* AuthService.swift */,
+				E9719E03DC47F58CD114D792 /* ConfigService.swift */,
 				7CBD59BDF40DF6F3E71CB2C3 /* GameService.swift */,
 				0AED4ED07389D1C6870BE3AE /* NotificationService.swift */,
 			);
@@ -162,9 +169,11 @@
 				28955B63861FD75A36544D42 /* HomeView.swift */,
 				51897AE6B54F6C9D45E4040F /* LobbyView.swift */,
 				A462C910BA35BAD9A7E6ED6D /* MeltdownOverlay.swift */,
+				7C8372FB3C934A4757E3BE99 /* PeekOverlay.swift */,
 				3BC6D2946F9C04C596689BB7 /* PlayerStatusView.swift */,
 				DA79627578F75BFA94FD5EE8 /* StatsView.swift */,
 				27BD6DA2F2257DBAF45D9E9E /* StressMeterView.swift */,
+				0F0BD1E4CBFFFC7EA15DEF06 /* TurnTimerView.swift */,
 				AFAB390105349DF431568C35 /* TutorialView.swift */,
 			);
 			path = Views;
@@ -345,6 +354,7 @@
 				982A998DADEC133CF3B1B980 /* Card.swift in Sources */,
 				D53B6901253012AB46CA873D /* CardView.swift in Sources */,
 				79A8B76AC5EFF93F211EA0DF /* Character.swift in Sources */,
+				5A445D6FC243AE22FB0BF1F9 /* ConfigService.swift in Sources */,
 				BFA1A5CA29158CCD89E53B1D /* DeepLinkHandler.swift in Sources */,
 				A9F3489D40479116A5EDE68E /* FeedbackManager.swift in Sources */,
 				E713A3D068C1A07450E3236F /* GameBoardView.swift in Sources */,
@@ -360,11 +370,13 @@
 				CB076DB474E1F8D6F80D2B40 /* LobbyViewModel.swift in Sources */,
 				0787A0EC12D252C59336897F /* MeltdownOverlay.swift in Sources */,
 				FB6D12060CCC6A7CDDC9057F /* NotificationService.swift in Sources */,
+				FD4712ED171F3F0309E1827F /* PeekOverlay.swift in Sources */,
 				5FBB63CCE1B00F35F03FB360 /* Player.swift in Sources */,
 				55A1FED341D0F067D2F15A66 /* PlayerStatusView.swift in Sources */,
 				04781E24DF4B51C4A2826266 /* ShareHelper.swift in Sources */,
 				B7FF460DD4E6FC353B336699 /* StatsView.swift in Sources */,
 				16549089C1C5E542DEE243CB /* StressMeterView.swift in Sources */,
+				597FF639BBDA5982C7AAA123 /* TurnTimerView.swift in Sources */,
 				EB7F82F98A2DF693AC38FEFC /* TutorialView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

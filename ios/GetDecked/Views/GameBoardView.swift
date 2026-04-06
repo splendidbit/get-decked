@@ -34,6 +34,14 @@ struct GameBoardView: View {
                     )
                 }
 
+                if vm.showPeekOverlay {
+                    PeekOverlay(
+                        playerName: vm.peekedPlayerName,
+                        cards: vm.peekedCards,
+                        onDismiss: { vm.dismissPeek() }
+                    )
+                }
+
                 if gs.status == .roundEnd || gs.status == .gameEnd {
                     GameEndView(gameState: gs, myId: vm.myId) {
                         Task { await vm.startNextRound() }
@@ -63,7 +71,16 @@ struct GameBoardView: View {
                     isCompact: vm.opponents.count > 2
                 )
                 .onTapGesture {
-                    if vm.selectedCard != nil && vm.validTargets.contains(pid) {
+                    guard vm.selectedCard != nil, vm.validTargets.contains(pid) else { return }
+                    // If we're in Snap follow-up mode and the follow-up needs a target
+                    if vm.selectedCard?.type == .snap, let followUp = vm.snapFollowUpCard, followUp.requiresTarget {
+                        vm.snapFollowUpTarget = pid
+                    } else if vm.selectedCard?.type == .chainReaction, vm.selectedTarget != nil {
+                        // Second tap sets splash target
+                        if pid != vm.selectedTarget {
+                            vm.splashTarget = pid
+                        }
+                    } else {
                         vm.selectedTarget = pid
                     }
                 }
@@ -101,11 +118,18 @@ struct GameBoardView: View {
                 }
             }
             Spacer()
-            if vm.isMyTurn {
-                Text("YOUR TURN").font(.caption.bold()).foregroundStyle(.green)
-            } else {
-                Text("\(gs.nameFor(gs.currentPlayerId))'s turn")
-                    .font(.caption).foregroundStyle(.secondary)
+            VStack(spacing: 2) {
+                if vm.isMyTurn {
+                    Text("YOUR TURN")
+                        .font(.caption.bold())
+                        .foregroundStyle(.green)
+                } else {
+                    Text("\(gs.nameFor(gs.currentPlayerId))'s turn")
+                        .font(.caption).foregroundStyle(.secondary)
+                }
+                if let deadline = gs.turnDeadline {
+                    TurnTimerView(deadline: deadline, isSync: gs.mode == .sync)
+                }
             }
         }
     }
@@ -115,14 +139,15 @@ struct GameBoardView: View {
         if vm.isMyTurn, let card = vm.selectedCard {
             HStack(spacing: 12) {
                 Button("Cancel") { vm.clearSelection() }.buttonStyle(.bordered)
-                if card.requiresTarget && vm.selectedTarget == nil {
+
+                if card.type == .snap {
+                    snapActionBar(gs, snapCard: card)
+                } else if card.type == .chainReaction {
+                    chainReactionActionBar(gs, card: card)
+                } else if card.type == .deflect {
+                    deflectActionBar(gs, card: card)
+                } else if card.requiresTarget && vm.selectedTarget == nil {
                     Text("Tap an opponent").font(.caption).foregroundStyle(.orange)
-                } else if card.requiresRedirectTarget && vm.deflectTarget == nil {
-                    Menu("Deflect to...") {
-                        ForEach(vm.validTargets, id: \.self) { pid in
-                            Button(gs.nameFor(pid)) { vm.deflectTarget = pid }
-                        }
-                    }
                 } else {
                     Button("Play") {
                         FeedbackManager.shared.cardPlayed()
@@ -133,6 +158,98 @@ struct GameBoardView: View {
                 }
             }
             .padding(.horizontal)
+        }
+    }
+
+    @ViewBuilder
+    private func snapActionBar(_ gs: GameState, snapCard: Card) -> some View {
+        if vm.snapFollowUpCard == nil {
+            // Step 1: Select follow-up card
+            VStack(spacing: 8) {
+                Text("Pick a follow-up card").font(.caption).foregroundStyle(.orange)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 4) {
+                        ForEach(vm.hand.filter({ $0.id != snapCard.id && $0.type != .snap })) { followUp in
+                            CardView(card: followUp, isSelected: false, isSmall: true)
+                                .onTapGesture {
+                                    vm.snapFollowUpCard = followUp
+                                }
+                        }
+                    }
+                }
+            }
+        } else if vm.snapFollowUpCard!.requiresTarget && vm.snapFollowUpTarget == nil {
+            // Step 2: Select target for follow-up
+            Text("Tap target for \(vm.snapFollowUpCard!.name)").font(.caption).foregroundStyle(.orange)
+        } else {
+            // Ready to play
+            VStack(spacing: 4) {
+                Text("Snap → \(vm.snapFollowUpCard!.name)").font(.caption).foregroundStyle(.secondary)
+                Button("Play") {
+                    FeedbackManager.shared.cardPlayed()
+                    Task { await vm.playSelectedCard() }
+                }
+                .buttonStyle(.borderedProminent)
+                .disabled(vm.isPlayingCard)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func chainReactionActionBar(_ gs: GameState, card: Card) -> some View {
+        if vm.selectedTarget == nil {
+            Text("Tap primary target").font(.caption).foregroundStyle(.orange)
+        } else if vm.splashTarget == nil {
+            VStack(spacing: 8) {
+                Text("Primary: \(gs.nameFor(vm.selectedTarget!))").font(.caption).foregroundStyle(.secondary)
+                Text("Tap splash target").font(.caption).foregroundStyle(.orange)
+                HStack(spacing: 8) {
+                    ForEach(vm.validTargets.filter({ $0 != vm.selectedTarget }), id: \.self) { pid in
+                        Button(gs.nameFor(pid)) {
+                            vm.splashTarget = pid
+                        }
+                        .buttonStyle(.bordered)
+                        .tint(vm.splashTarget == pid ? .pink : nil)
+                    }
+                }
+            }
+        } else {
+            VStack(spacing: 4) {
+                Text("Target: \(gs.nameFor(vm.selectedTarget!)), Splash: \(gs.nameFor(vm.splashTarget!))").font(.caption).foregroundStyle(.secondary)
+                Button("Play") {
+                    FeedbackManager.shared.cardPlayed()
+                    Task { await vm.playSelectedCard() }
+                }
+                .buttonStyle(.borderedProminent)
+                .disabled(vm.isPlayingCard)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func deflectActionBar(_ gs: GameState, card: Card) -> some View {
+        if vm.deflectTarget == nil {
+            VStack(spacing: 8) {
+                Text("Redirect attacks to:").font(.caption).foregroundStyle(.orange)
+                HStack(spacing: 8) {
+                    ForEach(vm.validTargets, id: \.self) { pid in
+                        Button(gs.nameFor(pid)) {
+                            vm.deflectTarget = pid
+                        }
+                        .buttonStyle(.bordered)
+                    }
+                }
+            }
+        } else {
+            VStack(spacing: 4) {
+                Text("Deflect to \(gs.nameFor(vm.deflectTarget!))").font(.caption).foregroundStyle(.secondary)
+                Button("Play") {
+                    FeedbackManager.shared.cardPlayed()
+                    Task { await vm.playSelectedCard() }
+                }
+                .buttonStyle(.borderedProminent)
+                .disabled(vm.isPlayingCard)
+            }
         }
     }
 }

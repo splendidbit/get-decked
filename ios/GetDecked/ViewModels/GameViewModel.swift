@@ -13,6 +13,9 @@ class GameViewModel: ObservableObject {
     @Published var snapFollowUpTarget: String?
     @Published var showMeltdownOverlay = false
     @Published var meltdownPlayerId: String?
+    @Published var showPeekOverlay = false
+    @Published var peekedPlayerName: String = ""
+    @Published var peekedCards: [Card] = []
     @Published var isPlayingCard = false
     @Published var errorMessage: String?
 
@@ -104,6 +107,7 @@ class GameViewModel: ObservableObject {
                 if let t = snapFollowUpTarget { fu["targetId"] = t }
                 snapFollowUp = fu
             }
+            let targetIdForPeek = selectedTarget
             try await service.playCard(
                 gameId: gameId,
                 cardId: card.id,
@@ -112,6 +116,11 @@ class GameViewModel: ObservableObject {
                 chainReactionSplashTargetId: splashTarget,
                 snapFollowUp: snapFollowUp
             )
+            if card.type == .peek, let targetId = targetIdForPeek {
+                peekedPlayerName = gameState?.nameFor(targetId) ?? "Unknown"
+                peekedCards = [] // Full hand display requires backend enhancement
+                showPeekOverlay = true
+            }
             clearSelection()
         } catch {
             errorMessage = error.localizedDescription
@@ -133,6 +142,12 @@ class GameViewModel: ObservableObject {
 
     func startNextRound() async {
         try? await service.startNextRound(gameId: gameId)
+    }
+
+    func dismissPeek() {
+        showPeekOverlay = false
+        peekedCards = []
+        peekedPlayerName = ""
     }
 
     func clearSelection() {
