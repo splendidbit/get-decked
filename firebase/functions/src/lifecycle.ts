@@ -98,6 +98,11 @@ export function startGame(
   const currentTurnIndex = Math.floor(Math.random() * state.players.length);
   const now = Date.now();
 
+  const turnDeadline =
+    state.mode === GameMode.Sync
+      ? now + 15000
+      : now + 24 * 60 * 60 * 1000;
+
   const gameState: GameState = {
     ...state,
     status: GameStatus.Active,
@@ -108,6 +113,7 @@ export function startGame(
     turnLog: [],
     isPressurePhase: false,
     meltdownPlayerId: null,
+    turnDeadline,
     updatedAt: now,
   };
 
@@ -139,6 +145,11 @@ export function resetRound(
   const currentTurnIndex = Math.floor(Math.random() * state.players.length);
   const now = Date.now();
 
+  const roundTurnDeadline =
+    state.mode === GameMode.Sync
+      ? now + 15000
+      : now + 24 * 60 * 60 * 1000;
+
   const gameState: GameState = {
     ...state,
     status: GameStatus.Active,
@@ -149,6 +160,7 @@ export function resetRound(
     turnLog: [],
     isPressurePhase: false,
     meltdownPlayerId: null,
+    turnDeadline: roundTurnDeadline,
     updatedAt: now,
   };
 

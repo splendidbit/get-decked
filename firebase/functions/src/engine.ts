@@ -7,6 +7,7 @@ import {
   GameEvent,
   ActiveEffect,
   GameStatus,
+  GameMode,
 } from './types';
 import { shuffleDeck } from './cards';
 
@@ -150,10 +151,16 @@ function advanceTurn(state: GameState): GameState {
     updatedEffects[pid] = effects.filter(e => e.expiresAfterTurnOf !== nextPlayerId);
   }
 
+  const turnDeadline =
+    state.mode === GameMode.Sync
+      ? Date.now() + 15000
+      : Date.now() + 24 * 60 * 60 * 1000;
+
   return {
     ...state,
     currentTurnIndex: nextIndex,
     activeEffects: updatedEffects,
+    turnDeadline,
     updatedAt: Date.now(),
   };
 }
