@@ -5,7 +5,7 @@ struct StressMeterView: View {
     let maxStress: Int = 10
     var isCompact: Bool = false
 
-    private var fillRatio: CGFloat { CGFloat(stress) / CGFloat(maxStress) }
+    private var fillRatio: CGFloat { CGFloat(min(stress, maxStress)) / CGFloat(maxStress) }
 
     private var meterColor: Color {
         switch stress {
@@ -21,13 +21,17 @@ struct StressMeterView: View {
             Text("\(stress)")
                 .font(isCompact ? .caption.bold() : .title2.bold())
                 .foregroundStyle(stress >= 8 ? .red : .primary)
+                .contentTransition(.numericText())
+                .animation(.spring(duration: 0.3), value: stress)
+
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 4).fill(.secondary.opacity(0.2))
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(.secondary.opacity(0.2))
                     RoundedRectangle(cornerRadius: 4)
                         .fill(meterColor.gradient)
                         .frame(width: geo.size.width * fillRatio)
-                        .animation(.spring(duration: 0.4), value: stress)
+                        .animation(.spring(duration: 0.5, bounce: 0.2), value: stress)
                 }
             }
             .frame(height: isCompact ? 6 : 10)

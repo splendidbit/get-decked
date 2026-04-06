@@ -20,6 +20,7 @@ struct GameBoardView: View {
                     HandView(cards: vm.hand, selectedCard: $vm.selectedCard)
                     actionBar(gs).padding(.bottom, 8)
                 }
+                .animation(.default, value: vm.gameState?.stressLevels)
 
                 if vm.showMeltdownOverlay, let mpId = vm.meltdownPlayerId {
                     MeltdownOverlay(
@@ -124,6 +125,7 @@ struct GameBoardView: View {
                     }
                 } else {
                     Button("Play") {
+                        FeedbackManager.shared.cardPlayed()
                         Task { await vm.playSelectedCard() }
                     }
                     .buttonStyle(.borderedProminent)

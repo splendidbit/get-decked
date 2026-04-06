@@ -5,6 +5,8 @@ struct GameEndView: View {
     let myId: String
     let onNextRound: () -> Void
 
+    @State private var showContent = false
+
     private var winnerId: String? { gameState.activePlayers.first }
     private var isGameOver: Bool { gameState.status == .gameEnd }
 
@@ -52,6 +54,11 @@ struct GameEndView: View {
                         .buttonStyle(.borderedProminent).controlSize(.large)
                 }
             }
+            .opacity(showContent ? 1 : 0)
+        }
+        .onAppear {
+            withAnimation(.spring(duration: 0.5)) { showContent = true }
+            FeedbackManager.shared.roundWon()
         }
     }
 }

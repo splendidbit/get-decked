@@ -50,12 +50,42 @@ class GameViewModel: ObservableObject {
 
     func startListening() {
         gameListener = service.listenToGame(gameId: gameId) { [weak self] state in
+            let oldState = self?.gameState
             self?.gameState = state
+
+            // Trigger haptics based on state changes
             if state.status == .meltdownPending {
                 self?.showMeltdownOverlay = true
                 self?.meltdownPlayerId = state.meltdownPlayerId
             } else {
+                if oldState?.status == .meltdownPending {
+                    // Meltdown just resolved
+                    self?.showMeltdownOverlay = false
+                }
                 self?.showMeltdownOverlay = false
+            }
+
+            // Haptic for turn change
+            if let myId = self?.myId {
+                if state.status == .active && state.currentPlayerId == myId && oldState?.currentPlayerId != myId {
+                    FeedbackManager.shared.turnStart()
+                }
+                // Haptic for stress change
+                if let oldStress = oldState?.stressLevels[myId], let newStress = state.stressLevels[myId] {
+                    if newStress > oldStress {
+                        FeedbackManager.shared.stressReceived()
+                    } else if newStress < oldStress {
+                        FeedbackManager.shared.chillPlayed()
+                    }
+                    if newStress == 0 && oldStress > 0 {
+                        FeedbackManager.shared.zenPlayed()
+                    }
+                }
+            }
+
+            // Haptic for round/game end
+            if state.status == .roundEnd || state.status == .gameEnd {
+                FeedbackManager.shared.roundWon()
             }
         }
         handListener = service.listenToHand(gameId: gameId, playerId: myId) { [weak self] cards in
