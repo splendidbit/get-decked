@@ -292,6 +292,10 @@ export function playCard(
     throw new Error('Deflect requires deflectRedirectTargetId');
   }
 
+  if (card.type === CardType.Deflect && request.deflectRedirectTargetId === playerId) {
+    throw new Error('Cannot deflect to yourself');
+  }
+
   // ── Remove card from hand, add to discard ─────────────────────────────────
   const newHand = hand.filter((_c, i) => i !== cardIndex);
   let ss: ServerState = {
@@ -451,7 +455,10 @@ export function playCard(
         description: `${gs.playerNames[playerId]} and ${gs.playerNames[targetId]} swapped stress levels.`,
       });
 
-      // Check meltdown on either player
+      // Defensive meltdown checks: both players must be alive (stress 0–9) before the swap,
+      // so after swapping they each hold the other's pre-swap stress (also 0–9). In practice
+      // neither can reach 10 via a swap alone. These checks are kept for correctness in case
+      // future changes allow stress > 9 without elimination.
       if (targetStress >= 10) {
         // playerId now holds targetStress which was already >=10
         const meltResult = handleMeltdown(gs, ss, events, playerId, playerId, card.name, request);
@@ -567,8 +574,23 @@ export function playCard(
           ss = splashResult.serverState;
           events.push(...splashResult.events);
 
-          // If splash also triggers meltdown, handle it (for the primary first, the primary
-          // meltdown takes precedence for status)
+          // If the splash also triggers a meltdown, add the splash target to eliminatedPlayers
+          // and emit a meltdown event for them. The primary target's tantrum is resolved first
+          // (via MeltdownPending); after that, the chain-meltdown system will pick up the
+          // splash target's pending elimination.
+          if (splashResult.meltdownTriggered) {
+            const splashEliminated = gs.eliminatedPlayers.includes(splashTargetId)
+              ? gs.eliminatedPlayers
+              : [...gs.eliminatedPlayers, splashTargetId];
+            gs = { ...gs, eliminatedPlayers: splashEliminated };
+            events.push({
+              type: 'meltdown',
+              playerId,
+              targetId: splashTargetId,
+              cardName: card.name,
+              description: `${gs.playerNames[splashTargetId]} has melted down from the chain reaction splash!`,
+            });
+          }
         }
 
         const meltResult = handleMeltdown(gs, ss, events, targetId, playerId, card.name, request);

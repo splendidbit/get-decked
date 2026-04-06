@@ -311,6 +311,20 @@ describe('Shield', () => {
 // ── Deflect ───────────────────────────────────────────────────────────────────
 
 describe('Deflect', () => {
+  test('rejects deflectRedirectTargetId equal to the playing player (self-redirect)', () => {
+    const { gameState, serverState, p1 } = setupGame();
+    const deflectCard = makeCard(CardType.Deflect, 0, 'def_self1');
+    const patchedServer = { ...serverState, hands: { ...serverState.hands, [p1]: [deflectCard] } };
+
+    expect(() =>
+      playCard(gameState, patchedServer, p1, {
+        gameId: gameState.id,
+        cardId: deflectCard.id,
+        deflectRedirectTargetId: p1, // self-redirect — invalid
+      }),
+    ).toThrow('Cannot deflect to yourself');
+  });
+
   test('redirects incoming stress to the redirect target', () => {
     const { gameState, serverState, p1, p2, p3 } = setupGame();
     const deflectEffect: ActiveEffect = { type: 'deflect', redirectTargetId: p3, expiresAfterTurnOf: p2 };
@@ -448,6 +462,38 @@ describe('ChainReaction', () => {
     expect(result.gameState.meltdownPlayerId).toBe(p2);
     // p3 receives splash stress
     expect(result.gameState.stressLevels[p3]).toBe(5);
+  });
+
+  test('splash meltdown: adds splash target to eliminatedPlayers and emits meltdown event', () => {
+    const { gameState, serverState, p1, p2, p3 } = setupGame();
+    const crCard = makeCard(CardType.ChainReaction, 2, 'cr3');
+    const patchedServer = { ...serverState, hands: { ...serverState.hands, [p1]: [crCard] } };
+    // p2 at 9 → meltdown (primary); p3 at 9 → splash takes them to 11 (cap 10) → also melts down
+    const patchedGame = {
+      ...gameState,
+      stressLevels: { ...gameState.stressLevels, [p2]: 9, [p3]: 9 },
+    };
+
+    const result = playCard(patchedGame, patchedServer, p1, {
+      gameId: gameState.id,
+      cardId: crCard.id,
+      targetId: p2,
+      chainReactionSplashTargetId: p3,
+    });
+
+    // Primary meltdown on p2
+    expect(result.gameState.status).toBe(GameStatus.MeltdownPending);
+    expect(result.gameState.meltdownPlayerId).toBe(p2);
+
+    // Splash target p3 is also eliminated
+    expect(result.gameState.eliminatedPlayers).toContain(p2);
+    expect(result.gameState.eliminatedPlayers).toContain(p3);
+
+    // A meltdown event for p3 was emitted
+    const p3MeltdownEvent = result.events.find(
+      (e: import('../src/types').GameEvent) => e.type === 'meltdown' && e.targetId === p3,
+    );
+    expect(p3MeltdownEvent).toBeDefined();
   });
 });
 
